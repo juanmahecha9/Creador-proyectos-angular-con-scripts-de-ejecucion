@@ -1,23 +1,13 @@
 #!/bin/bash
 set -fueo pipefail
 
-function main(){
-    cd ..
-    # Create directory
-    makeProject
-    # Create angular project
-    angularInit
-    # cd to new directory
-    cd $projectNameDirectory
-    # cd to angular project
-    cd $projectNameDirectory
-    # Create script folder
-    scripts
-    sleep 2
-    # Delete the first git repository that was create at the moment to create the angular project
-    sh scripts/git-remove.sh
+function readProjectName(){
+    #read the name of the project 
+    echo "Do not place space between the words containing the project name, for example place: test-project or testProject or test_project"
     echo " "
-    echo "The first .git directory initialized automatically with the creation of the angular project was deleted... Now it's possible to start a new repository in your own git 😀"
+    echo " "
+    echo "🤓 Project name directory: "
+    read projectNameDirectory
 }
 
 function makeProject(){
@@ -37,11 +27,6 @@ function makeProject(){
             echo "✅ Directory $projectNameDirectory was be created"
             sleep 6
     fi    
-}
-
-function readProjectName(){
-    echo "🤓 Project name directory: "
-    read projectNameDirectory
 }
 
 function angularInit(){(
@@ -77,5 +62,25 @@ function proxy(){(
     cd $projectNameDirectory
     curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631667640/scripts/proxy.conf.json
 )}
+
+# Main function.
+function main(){
+    cd ..
+    # Create directory
+    makeProject
+    # Create angular project
+    angularInit
+    # cd to new directory
+    cd $projectNameDirectory
+    # cd to angular project
+    cd $projectNameDirectory
+    # Create script folder
+    scripts
+    sleep 2
+    # Delete the first git repository that was create at the moment to create the angular project
+    sh scripts/git-remove.sh
+    echo " "
+    echo "The first .git directory initialized automatically with the creation of the angular project was deleted... Now it's possible to start a new repository in your own git 😀"
+}
 
 main
