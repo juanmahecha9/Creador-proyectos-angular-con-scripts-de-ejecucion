@@ -9,7 +9,7 @@ function main(){
     scripts
     sleep 2
     # Delete the first git repository that was create at the moment to create the angular project
-    sh git-remove.sh
+    sh scripts/git-remove.sh
 }
 
 function makeProject(){
