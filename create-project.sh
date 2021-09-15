@@ -3,39 +3,63 @@ set -fueo pipefail
 
 function main(){
     cd ..
+    # Create directory
     makeProject
+    # Create angular project
     angularInit
+    # cd to new directory
     cd $projectNameDirectory
+    # cd to angular project
+    cd $projectNameDirectory
+    # Create script folder
     scripts
     sleep 2
     # Delete the first git repository that was create at the moment to create the angular project
     sh scripts/git-remove.sh
+    echo " "
+    echo "The first .git directory initialized automatically with the creation of the angular project was deleted... Now it's possible to start a new repository in your own git 😀"
 }
 
 function makeProject(){
-    echo "Project name directory: "
-    read projectNameDirectory
-    mkdir $projectNameDirectory
-    echo "Directory $projectNameDirectory was be created"
+    readProjectName
+    # directory exists?
+    if [ -d "$projectNameDirectory" ]
+        then
+            echo "The directory exists, Please enter a new name."
+            echo " "
+            readProjectName
+            mkdir $projectNameDirectory
+            echo "✅ Directory $projectNameDirectory was be created"
+            sleep 6
+    else
+        echo " "
+            mkdir $projectNameDirectory
+            echo "✅ Directory $projectNameDirectory was be created"
+            sleep 6
+    fi    
 }
 
-function angularInit(){
+function readProjectName(){
+    echo "🤓 Project name directory: "
+    read projectNameDirectory
+}
+
+function angularInit(){(
     cd $projectNameDirectory
     echo "Make a project"
     ng new $projectNameDirectory --style=scss -p a6s --routing true
-    # create file proxy conf
-    cd $projectNameDirectory
-    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631667640/scripts/proxy.conf.json
-}
+    sleep 3
+    proxy
+)}
 
-function scripts(){
+function scripts(){(
     echo "Scripts directory was created..."
     mkdir scripts
     cd scripts
     createShFiles
-}
+)}
 
-function createShFiles(){
+function createShFiles(){(
    echo ".sh files was added to scripts box"
    #Estos archivos por practicidad y para evetirar errores a la hora de ejecución se cargaron en una nube, lo cual los permite descagar
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/services.sh
@@ -46,6 +70,12 @@ function createShFiles(){
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/componets.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/class.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631727489/scripts/run.sh
-}
+)}
+
+function proxy(){(
+    # create file proxy conf
+    cd $projectNameDirectory
+    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631667640/scripts/proxy.conf.json
+)}
 
 main
