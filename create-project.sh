@@ -28,13 +28,13 @@ function angularInit(){
 function scripts(){
     echo "Scripts directory was created..."
     mkdir scripts
-    cd scriptsg
+    cd scripts
     createShFiles
 }
 
 function createShFiles(){
-    echo ".sh files was added to scripts box"
-    #Estos archivos por practicidad y para evetirar errores a la hora de ejecución se cargaron en una nube, lo cual los permite descagar
+   echo ".sh files was added to scripts box"
+   #Estos archivos por practicidad y para evetirar errores a la hora de ejecución se cargaron en una nube, lo cual los permite descagar
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/services.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/run.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/readMe.md
