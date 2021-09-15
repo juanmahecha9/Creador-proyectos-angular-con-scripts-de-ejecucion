@@ -15,6 +15,7 @@ function makeProject(){
     # directory exists?
     if [ -d "$projectNameDirectory" ]
         then
+            echo ""
             echo "The directory exists, Please enter a new name."
             echo " "
             readProjectName
@@ -81,6 +82,9 @@ function main(){
     sh scripts/git-remove.sh
     echo " "
     echo "The first .git directory initialized automatically with the creation of the angular project was deleted... Now it's possible to start a new repository in your own git 😀"
+    echo " "
+    echo "function maked by: juanmahecha9"
+    echo " "
 }
 
 main
