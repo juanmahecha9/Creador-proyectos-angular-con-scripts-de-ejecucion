@@ -3,7 +3,7 @@ set -fueo pipefail
 
 function readProjectName(){
     #read the name of the project 
-    echo "Do not place space between the words containing the project name, for example place: test-project or testProject or test_project"
+    echo "Do not place space between the words containing the project name and underlines, for example place: test-project or testProject"
     echo " "
     echo " "
     echo "🤓 Project name directory: "
@@ -35,7 +35,11 @@ function angularInit(){(
     echo "Make a project"
     ng new $projectNameDirectory --style=scss -p a6s --routing true
     sleep 3
-    proxy
+    proxy  
+    echo "Proxy was created"
+    sleep 2
+    bootstrap
+    echo "bootstrap dependencies was intalled"
 )}
 
 function scripts(){(
@@ -64,9 +68,26 @@ function proxy(){(
     curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631667640/scripts/proxy.conf.json
 )}
 
+function bootstrap(){(
+    cd $projectNameDirectory
+    ### instalar bootstrap
+    sleep 2
+    npm i bootstrap jquery @popperjs/core
+)}
+
+function files(){(
+    rm readMe.md
+    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631803567/scripts/readme%20angular/readMe.md
+    sleep 1
+    mkdir bootstrap-info
+    cd bootstrap-info
+    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631803034/scripts/bootstrap-info.txt
+)}
+
 # Main function.
 function main(){
     cd ..
+
     # Create directory
     makeProject
     # Create angular project
@@ -75,16 +96,23 @@ function main(){
     cd $projectNameDirectory
     # cd to angular project
     cd $projectNameDirectory
+    
     # Create script folder
     scripts
     sleep 2
+
+    # New ReadMe
+    files
+
     # Delete the first git repository that was create at the moment to create the angular project
-    sh scripts/git-remove.sh
+    sh scripts/git-remove.sh   
     echo " "
     echo "The first .git directory initialized automatically with the creation of the angular project was deleted... Now it's possible to start a new repository in your own git 😀"
     echo " "
     echo "function maked by: juanmahecha9"
     echo " "
+    cd ..
+    code $projectNameDirectory
 }
 
 main
