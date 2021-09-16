@@ -81,7 +81,7 @@ function files(){(
     sleep 1
     mkdir bootstrap-info
     cd bootstrap-info
-    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631803034/scripts/bootstrap-info.txt
+    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631804102/scripts/bootstrap-info.txt
 )}
 
 # Main function.
