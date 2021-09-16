@@ -57,7 +57,7 @@ function createShFiles(){(
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/git-remove.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/guard.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/common-components.sh
-   curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/componets.sh
+   curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631807053/scripts/components.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/class.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631727489/scripts/run.sh
 )}
