@@ -60,6 +60,7 @@ function createShFiles(){(
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631807053/scripts/components.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631665657/scripts/class.sh
    curl -O https://res.cloudinary.com/yuem1/raw/upload/v1631727489/scripts/run.sh
+   curl -O https://res.cloudinary.com/yuem1/raw/upload/v1632945626/scripts/modules.sh
 )}
 
 function proxy(){(
