@@ -1,6 +1,6 @@
 # Read Me
 
-Ejecutar en consola de sistemas linux, mac y en windows usando la consola bash de git con el comando `sh create-project.md`
+Ejecutar en consola de sistemas linux, mac y en windows usando la consola bash de git con el comando `sh create-project.sh`
 
 Este programa crea un proyecto de angular desde cero inicializando una carpeta con funcionales elaboradas en shell para agilizar la creción de un proyecto.
 
